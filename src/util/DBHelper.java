@@ -2,6 +2,8 @@ package util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class DBHelper {
    
@@ -36,15 +38,15 @@ public class DBHelper {
 		}
 		return conn;
 	}
-	
-	public static void main(String[] args) {
 		
-		try
-		{
-		   Connection conn = DBHelper.getConnection();
-		   if(conn!=null)
-		   {
-			   System.out.println("数据库连接成功啦！");
+	public static void main(String[] args) {
+			
+			try
+			{
+			   Connection conn = DBHelper.getConnection();
+			   if(conn!=null)
+			   {
+				   System.out.println("数据库连接成功啦！");
 		   }
 		   else
 		   {
@@ -56,5 +58,27 @@ public class DBHelper {
 			ex.printStackTrace();
 		}
 		
+	}
+	/**
+	 * 关闭资源
+	 * @param rs
+	 * @param ps
+	 * @param conn
+	 */
+	
+	public static void colose(ResultSet rs, PreparedStatement ps, Connection conn) {
+		try {
+			if(rs != null) {
+				rs.close();
+			}
+			if(ps != null) {
+				ps.close();
+			}
+			if(conn != null) {
+				conn.close();
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 }

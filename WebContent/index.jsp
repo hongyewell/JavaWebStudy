@@ -32,7 +32,7 @@
 <body>
 	<h1>商品展示 </h1>
 	<br>
-	<h2> <%=session.getAttribute("username") %> 欢迎你～</h2>
+	<h2> ${user.username} 欢迎你～</h2>
 	<hr>
 	<center>
 	<table width="750" height="60" cellspacing="0" border="0">

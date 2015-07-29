@@ -153,6 +153,10 @@ input[type="submit"]{
 	width:80px;
 	margin-top:20px;
 }
+.error {
+		color: red;
+	}
+
 </style>
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
@@ -184,6 +188,7 @@ $(function(){
 			<input type="password" name="password" placeholder="password">
 			<input type="submit" value="LOG IN">
 		</form>
+		<span class="error">${error }</span>
     </div>
 </div>
 	

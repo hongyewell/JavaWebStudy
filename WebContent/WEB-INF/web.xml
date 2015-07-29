@@ -29,4 +29,24 @@
     <servlet-name>CartServlet</servlet-name>
     <url-pattern>/CartServlet</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>test</display-name>
+    <servlet-name>test</servlet-name>
+    <servlet-class>servlet.test</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>test</servlet-name>
+    <url-pattern>/test</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ee</display-name>
+    <servlet-name>ee</servlet-name>
+    <servlet-class>servlet.ee</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ee</servlet-name>
+    <url-pattern>/ee</url-pattern>
+  </servlet-mapping>
 </web-app>
