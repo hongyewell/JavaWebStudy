@@ -12,9 +12,11 @@
 	      float:left;
 	      margin: 10px;
 	   }
-	   div dd{
-	      margin:0px;
-	      font-size:10pt;
+
+	   div dd
+	   {
+	      margin:2px;
+	      font-size:11pt;
 	   }
 	   div dd.dd_name
 	   {
@@ -50,10 +52,10 @@
 	<div>
 		<dl>
 		<dt>
-			<a href = details.jsp?id=<%=item.getId() %>><img src="images/<%=item.getPicture()%>" width="200" height="160" border="1"/></a>
+			<a href = details.jsp?id=<%=item.getId() %>><img src="images/<%=item.getPicture()%>" width="200" height="190" border="1" /></a>
 		</dt>
 		<dd class="dd_name"><%=item.getName() %></dd>
-		<dd dd.dd_city>产地：<%=item.getCity() %></dd>
+		<dd class="dd_city">产地：<%=item.getCity() %></dd>
 		<dd>价格：<%=item.getPrice()%>元</dd>
 		</dl>
 	</div>	

@@ -47,5 +47,42 @@ public class Items {
 		this.picture = picture;
 	}
 	
+	@Override
+	public int hashCode() {
+		
+		return this.getId()+this.getName().hashCode();
+	}
+	
+	
+	@Override
+	public boolean equals(Object obj) {
+
+		if(this==obj)
+		{
+			return true;
+		}
+		if(obj instanceof Items)
+		{
+			Items i = (Items)obj;
+			if(this.getId()== i.getId()&&this.getName().equals(i.getName()))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
+		}
+		else
+		{
+			return false;
+		}
+	}
+	
+	
+	public String toString()
+	{
+		return "商品编号："+this.getId()+",商品名称："+this.getName();
+	}
 	
 }

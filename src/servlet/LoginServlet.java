@@ -42,7 +42,7 @@ public class LoginServlet extends HttpServlet {
 		u.setUsername(username);
 		u.setPassword(password);
 		//判断用户名和密码是否合法
-		if(u.getUsername().equals("admin")&&u.getPassword().equals("123"))
+		if(u.getUsername().equals("cclsol")&&u.getPassword().equals("123"))
 		{
 			HttpSession session = request.getSession();
 			session.setAttribute("username", u.getUsername());

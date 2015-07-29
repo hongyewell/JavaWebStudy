@@ -2,12 +2,46 @@
     pageEncoding="utf-8"%>
 <%@ page import="dao.ItemsDAO" %>
 <%@ page import="entity.Items" %>
+<%
+String path = request.getContextPath();
+String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.getServerPort()+path+"/";
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>商品详情</title>
+<link href="css/main.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="js/lhgcore.js"></script>
+<script type="text/javascript" src="js/lhgdialog.js"></script>
+  <script type="text/javascript">
+      function selflog_show(id)
+      { 
+         var num =  document.getElementById("number").value; 
+         J.dialog.get({id: 'haoyue_creat',title: '购物成功',width: 600,height:400, link: '<%=path%>/CartServlet?id='+id+'&num='+num+'&action=add', cover:true});
+      }
+      function add()
+      {
+         var num = parseInt(document.getElementById("number").value);
+         if(num<100)
+         {
+            document.getElementById("number").value = ++num;
+         }
+      }
+      function sub()
+      {
+         var num = parseInt(document.getElementById("number").value);
+         if(num>1)
+         {
+            document.getElementById("number").value = --num;
+         }
+      }
+     
+    </script>
 <style type="text/css">
+ 	hr{
+	     border-color:FF7F00; 
+	   }
 	   div{
 	      float:left;
 	      margin-left: 30px;
@@ -27,10 +61,23 @@
 	   {
 	      color:#000;
 	   }
+	    div #cart
+	   {
+	     margin:0px auto;
+	     text-align:right; 
+	   }
+	   span{
+	     padding:0 2px;border:1px #c0c0c0 solid;cursor:pointer;
+	   }
+	   a{
+	      text-decoration: none; 
+	   }
 	</style>
 </head>
 <body>
 	<h1>商品详情</h1>
+	<a href="index.jsp">首页</a> >> <a href="index.jsp">商品列表</a>
+	<hr>
 	<center>
 		<table width="750" height="60" cellpadding="0" cellspacing="0" border="0">
 			<tr>
@@ -58,7 +105,19 @@
 						<tr>
 							<td>价格：<%=item.getPrice() %>￥</td>
 						</tr>
+						<tr>
+							<td>购买数量：<span id="sub" onclick="sub();">-</span><input
+								type="text" id="number" name="number" value="1" size="2" /><span
+								id="add" onclick="add();">+</span></td>
+						</tr>
 				</table>
+				<div id="cart">
+						<img src="images/buy_now.png"><a
+							href="javascript:selflog_show(<%=item.getId()%>)"><img
+							src="images/in_cart.png"></a><a
+							href="CartServlet?action=show"><img
+							src="images/view_cart.jpg" /></a>
+					</div>
 				</td>
 				<%
 					}
