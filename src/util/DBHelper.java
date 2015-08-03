@@ -6,8 +6,32 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 public class DBHelper {
+	// 定义连接数据库
+		private static Connection ct = null;
+		// 定义操作数据库的类
+		private static PreparedStatement ps = null;
+		// 输出数据的类
+		private static ResultSet rs = null;
+
+		// 静态方式取得链接
+		public static Connection getConnection() {
+			// 数据库用户名
+			String username = "root";
+			// 数据库用户密码
+			String passwd = "1234";
+			String url = "jdbc:mysql://localhost:3306/shopping?useUnicode=true&characterEncoding=UTF-8";
+			// 获取驱动
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+				ct = DriverManager.getConnection(url, username, passwd);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			return ct;
+		}
    
-	private static final String driver = "com.mysql.jdbc.Driver"; //数据库驱动
+	/*private static final String driver = "com.mysql.jdbc.Driver"; //数据库驱动
 	//连接数据库的URL地址
 	private static final String url="jdbc:mysql://localhost:3306/shopping?useUnicode=true&characterEncoding=UTF-8"; 
 	private static final String username="root";//数据库的用户名
@@ -58,7 +82,7 @@ public class DBHelper {
 			ex.printStackTrace();
 		}
 		
-	}
+	}*/
 	/**
 	 * 关闭资源
 	 * @param rs

@@ -84,5 +84,13 @@ public class Items {
 	{
 		return "商品编号："+this.getId()+",商品名称："+this.getName();
 	}
-	
+	public Items(){
+		
+	}
+	public Items(String name, String city, int number,int price) {
+		 this.name = name;
+		 this.city = city;
+		 this.number = number;
+		 this.price = price;
+	}
 }

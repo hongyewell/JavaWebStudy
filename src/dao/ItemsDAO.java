@@ -5,12 +5,62 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-
+import java.util.List;
 import entity.Items;
 import util.DBHelper;
 
 //商品的业务逻辑类
+/**
+ * @desc: JspViewListDemo
+ * @author: yeye
+ * @createTime: 2015年8月3日 下午3:39:30
+ * @history:
+ * @version: v1.0
+*/
 public class ItemsDAO {
+	/**
+	 *
+	 * @author: yeye
+	 * @createTime: 2015年8月3日 下午3:39:10
+	 * @history:
+	 * @return
+	 * @throws Exception List<Items>
+	*/
+	public List<Items>queryAll() throws Exception{
+		String sql = " select u.name,u.city,u.number,u.price from items u";
+		
+		Connection conn = DBHelper.getConnection();
+		PreparedStatement ps = null;
+		ResultSet rs = null;
+		try {
+			ps = conn.prepareStatement(sql);
+			rs = ps.executeQuery();
+			
+			// 创建List集合，用户存放查询出来的用户列表
+			List<Items> Itmes = new ArrayList<Items>();
+			
+			while(rs.next()) {
+				
+				String name = rs.getString("name");
+				String city = rs.getString("city");
+				int number = rs.getInt("number");
+				int price = rs.getInt("price");
+				Items Items = new Items(name, city, number,price);
+				
+				Itmes.add(Items);
+			}
+			
+			return Itmes;
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBHelper.colose(rs, ps, conn);
+		}
+		
+		return null;
+		
+	}
 	
 	//获取所有的商品信息
 	public ArrayList<Items>getAllItems()
@@ -79,6 +129,14 @@ public class ItemsDAO {
 	}
 	
 	//根据商品编号获取商品详细信息
+	/**
+	 *
+	 * @author: yeye
+	 * @createTime: 2015年8月3日 下午3:39:59
+	 * @history:
+	 * @param id
+	 * @return Items
+	*/
 	public Items getItemsById(int id)
 	{
 		Connection conn = null;
@@ -147,6 +205,15 @@ public class ItemsDAO {
 	}
 	
 	//获取最近浏览的前五条商品信息
+	
+	/**
+	 *
+	 * @author: yeye
+	 * @createTime: 2015年8月3日 下午3:40:29
+	 * @history:
+	 * @param list
+	 * @return ArrayList<Items>
+	*/
 	public ArrayList<Items>getViewList(String list)
 	{
 		ArrayList<Items> itemlist = new ArrayList<Items>();
@@ -155,7 +222,7 @@ public class ItemsDAO {
 		{
 			String[] arr = list.split(",");
 			//如果商品记录大于等于5条
-			if(arr.length>=5)
+			if(arr.length>=3)
 			{
 				for(int i=arr.length-1;i>=arr.length-iCount;i--)
 				{

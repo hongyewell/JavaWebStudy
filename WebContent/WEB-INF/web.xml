@@ -30,23 +30,21 @@
     <url-pattern>/CartServlet</url-pattern>
   </servlet-mapping>
   <servlet>
-    <description></description>
-    <display-name>test</display-name>
-    <servlet-name>test</servlet-name>
-    <servlet-class>servlet.test</servlet-class>
+    <servlet-name>goods</servlet-name>
+    <servlet-class>servlet.goodsListController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>test</servlet-name>
-    <url-pattern>/test</url-pattern>
+    <servlet-name>goods</servlet-name>
+    <url-pattern>/goods</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>ee</display-name>
-    <servlet-name>ee</servlet-name>
-    <servlet-class>servlet.ee</servlet-class>
+    <display-name>goodsListController</display-name>
+    <servlet-name>goodsListController</servlet-name>
+    <servlet-class>servlet.goodsListController</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ee</servlet-name>
-    <url-pattern>/ee</url-pattern>
+    <servlet-name>goodsListController</servlet-name>
+    <url-pattern>/goodsListController</url-pattern>
   </servlet-mapping>
 </web-app>

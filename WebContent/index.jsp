@@ -31,6 +31,7 @@
 </head>
 <body>
 	<h1>商品展示 </h1>
+	 <a href="viewList.jsp">所有商品列表</a>
 	<br>
 	<h2> ${user.username} 欢迎你～</h2>
 	<hr>
@@ -68,7 +69,7 @@
 		</tr>
 	</table>
 	</center>
-
+   
 
 
 </body>
