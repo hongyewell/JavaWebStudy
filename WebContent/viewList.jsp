@@ -15,6 +15,8 @@
 				<th>生产地</th>
 				<th>数量</th>
 				<th>价格</th>
+				<th>图片</th>
+				
 			</tr>
 		</thead>
 		<tbody id="goods">
@@ -43,6 +45,7 @@
 							+ '<td>'+items.city+'</td>'
 							+ '<td>'+items.number+'</td>'
 							+ '<td>'+items.price+'</td>'
+							+ '<td>'+items.picture+'</td>'
 						 + '</tr>';
 				}
 				// 将拼接后的用户列表渲染在页面上

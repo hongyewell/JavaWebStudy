@@ -87,10 +87,11 @@ public class Items {
 	public Items(){
 		
 	}
-	public Items(String name, String city, int number,int price) {
+	public Items(String name, String city, int number,int price,String picture) {
 		 this.name = name;
 		 this.city = city;
 		 this.number = number;
 		 this.price = price;
+		 this.picture = picture;
 	}
 }

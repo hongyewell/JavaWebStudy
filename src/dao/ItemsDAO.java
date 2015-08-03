@@ -27,7 +27,7 @@ public class ItemsDAO {
 	 * @throws Exception List<Items>
 	*/
 	public List<Items>queryAll() throws Exception{
-		String sql = " select u.name,u.city,u.number,u.price from items u";
+		String sql = " select u.name,u.city,u.number,u.price,u.picture from items u";
 		
 		Connection conn = DBHelper.getConnection();
 		PreparedStatement ps = null;
@@ -45,7 +45,8 @@ public class ItemsDAO {
 				String city = rs.getString("city");
 				int number = rs.getInt("number");
 				int price = rs.getInt("price");
-				Items Items = new Items(name, city, number,price);
+				String picture = rs.getString("picture");
+				Items Items = new Items(name, city, number,price,picture);
 				
 				Itmes.add(Items);
 			}
