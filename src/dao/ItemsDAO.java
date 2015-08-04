@@ -27,7 +27,7 @@ public class ItemsDAO {
 	 * @throws Exception List<Items>
 	*/
 	public List<Items>queryAll() throws Exception{
-		String sql = " select u.name,u.city,u.number,u.price,u.picture from items u";
+		String sql = " select *from items ";
 		
 		Connection conn = DBHelper.getConnection();
 		PreparedStatement ps = null;
@@ -40,13 +40,13 @@ public class ItemsDAO {
 			List<Items> Itmes = new ArrayList<Items>();
 			
 			while(rs.next()) {
-				
+				int id = rs.getInt("id");
 				String name = rs.getString("name");
 				String city = rs.getString("city");
 				int number = rs.getInt("number");
 				int price = rs.getInt("price");
 				String picture = rs.getString("picture");
-				Items Items = new Items(name, city, number,price,picture);
+				Items Items = new Items(id,name, city, number,price,picture);
 				
 				Itmes.add(Items);
 			}

@@ -39,13 +39,18 @@
 				var html = '';
 				for(var i = 0, len = datas.length; i < len; i++) {
 					var items = datas[i];
-					
+					var pic = 'images/'+items.picture;
+					var link = 'details.jsp?id='+items.id
 					html += '<tr>'
 							+ '<td>'+items.name+'</td>'
 							+ '<td>'+items.city+'</td>'
 							+ '<td>'+items.number+'</td>'
 							+ '<td>'+items.price+'</td>'
-							+ '<td>'+items.picture+'</td>'
+							+ '<td>'
+							+ "<a href ='"+link+"'>"
+							+ "<img src='"+pic+"'  width=\"200\" height=\"190\" border=\"1\" />"
+							+ "</a>"
+							+ '</td>'
 						 + '</tr>';
 				}
 				// 将拼接后的用户列表渲染在页面上

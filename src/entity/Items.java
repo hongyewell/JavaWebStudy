@@ -87,7 +87,8 @@ public class Items {
 	public Items(){
 		
 	}
-	public Items(String name, String city, int number,int price,String picture) {
+	public Items(int id ,String name, String city, int number,int price,String picture) {
+		 this.id = id;
 		 this.name = name;
 		 this.city = city;
 		 this.number = number;
