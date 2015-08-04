@@ -47,24 +47,30 @@
     <servlet-name>goodsListController</servlet-name>
     <url-pattern>/goodsListController</url-pattern>
   </servlet-mapping>
-  
-    <!-- 添加用户 -->
   <servlet>
-  	<servlet-name>addUser</servlet-name>
-  	<servlet-class>servlet.registerController</servlet-class>
+    <servlet-name>addUser</servlet-name>
+    <servlet-class>servlet.registerController</servlet-class>
   </servlet>
- <servlet-mapping>
+  <servlet-mapping>
     <servlet-name>addUser</servlet-name>
     <url-pattern>/addUser</url-pattern>
   </servlet-mapping>
-  
-  <!-- 用户列表 -->
   <servlet>
-  	<servlet-name>users</servlet-name>
-  	<servlet-class>servlet.userListController</servlet-class>
+    <servlet-name>users</servlet-name>
+    <servlet-class>servlet.userListController</servlet-class>
   </servlet>
   <servlet-mapping>
-  	<servlet-name>users</servlet-name>
-  	<url-pattern>/users</url-pattern>
+    <servlet-name>users</servlet-name>
+    <url-pattern>/users</url-pattern>
   </servlet-mapping>
+  <!-- 图片上传 -->
+   <servlet>
+    <servlet-name>imgUpload</servlet-name>
+    <servlet-class>servlet.SmartUploadServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>imgUpload</servlet-name>
+    <url-pattern>/imgUpload</url-pattern>
+  </servlet-mapping>
+ 
 </web-app>
