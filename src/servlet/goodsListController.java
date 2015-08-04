@@ -40,8 +40,8 @@ public class goodsListController extends HttpServlet {
 		try {
 			items = itemsService.getAllItems();
 			Gson gson = new Gson();
-			String itemsJson = gson.toJson(items);	// 将List<User>集合中的User转换成json格式的字符串数据
-			// 将json格式的用户列表返回的浏览器端
+			String itemsJson = gson.toJson(items);	// 将List<Items>集合中的User转换成json格式的字符串数据
+			// 将json格式的商品列表返回的浏览器端
 			PrintWriter out = resp.getWriter();
 			out.write(itemsJson);
 			
